@@ -18,7 +18,7 @@ const Index = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>WebAppTemplate</title>
+        <title>reactplot</title>
       </Head>
 
       <div className="text-base mt-8 mb-2">ポイント</div>

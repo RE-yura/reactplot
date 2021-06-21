@@ -1,6 +1,6 @@
 {
-  "name": "WebAppTemplate",
-  "short_name": "WebAppTemplate",
+  "name": "reactplot",
+  "short_name": "reactplot",
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#ffffff",

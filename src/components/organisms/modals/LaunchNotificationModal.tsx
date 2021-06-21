@@ -7,7 +7,7 @@ type Props = {
 const LaunchNotificationModal: FC<Props> = (props) => {
   return (
     <ModalCard onClose={props.onClose}>
-      <div className="font-bold text-lg mb-4">Welcome to WebAppTemplate</div>
+      <div className="font-bold text-lg mb-4">Welcome to reactplot</div>
       <div className="text-xs tracking-tight">
         ESLint,Prettier,TailwindCSS,Reduxの設定だけでなく，
       </div>

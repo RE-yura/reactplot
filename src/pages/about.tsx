@@ -6,7 +6,7 @@ const About = () => {
   return (
     <DefaultLayout>
       <Head>
-        <title>WebAppTemplate - About</title>
+        <title>reactplot - About</title>
       </Head>
 
       <div className="text-lg my-8">About</div>

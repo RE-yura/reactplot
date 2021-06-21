@@ -16,7 +16,7 @@ import {
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
-  key: "webapp-root", // Storageに保存されるキー名を指定する
+  key: "reactplot-root", // Storageに保存されるキー名を指定する
   storage, // 保存先としてlocalStorageがここで設定される
   // whitelist: ["todos"], // Stateは`todos`のみStorageに保存する
   // blacklist: ['visibilityFilter'] // `visibilityFilter`は保存しない

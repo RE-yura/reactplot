@@ -1,6 +1,6 @@
-# WebAppTemplate
+# reactplot
 
-This is a template for common Web Application.
+表形式のデータを可視化するためのアプリケーションです.
 
 |              |                                   |
 | ------------ | ----------------------------------|

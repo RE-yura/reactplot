@@ -23,7 +23,7 @@ const Header: FC<Props> = (props) => {
         {!props.notTop ? (
           <Link href="/">
             {/* <img className="w-28 header-icon-logo" src="/img/vercel.svg" /> */}
-            <a className="text-white text-3xl ml-10 font-title">WebAppTemplate</a>
+            <a className="text-white text-3xl ml-10 font-title">reactplot</a>
           </Link>
         ) : (
           <FontAwesomeIcon
