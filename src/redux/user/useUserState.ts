@@ -4,7 +4,7 @@
 
 import { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import userSlice, { UserState } from "./slice";
+import userSlice, { UserState } from "./userSlice";
 import { userService } from "../../service/UserService";
 
 export const useUserState = () => {

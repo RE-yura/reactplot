@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import Hamburger from "../../atoms/global/Hamburger";
 import LinkButton from "../../atoms/global/LinkButton";
-import { useNavState } from "../../../redux/nav/useState";
+import { useNavState } from "../../../redux/nav/useNavState";
 
 type Props = {
   show: boolean;

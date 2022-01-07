@@ -1,73 +1,80 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import styled from "styled-components";
-import Hamburger from "../../atoms/global/Hamburger";
 import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-import { useNavState } from "../../../redux/nav/useState";
 import { useRouter } from "next/router";
 
-type Props = {
-  notTop?: boolean;
-  hideHamburger?: boolean;
-  bg?: string;
-};
-
-const Header: FC<Props> = (props) => {
+const Header: FC = () => {
   const router = useRouter();
-  const { navState, setShowSideMenu, setBackDrop } = useNavState();
+  const [path, setPath] = useState("");
+
+  useEffect(() => {
+    const path = router.route;
+    setPath(path);
+    //   const category = props.params.category;
+    //   console.log(category);
+  });
 
   return (
-    <StyledHeader bg={props.bg}>
-      <div className="header-icon">
-        {!props.notTop ? (
-          <Link href="/">
-            {/* <img className="w-28 header-icon-logo" src="/img/vercel.svg" /> */}
-            <a className="text-white text-3xl ml-10 font-title">reactplot</a>
-          </Link>
-        ) : (
-          <FontAwesomeIcon
-            onClick={() => router.back()}
-            className="header-icon-back"
-            icon={faAngleLeft}
-          />
-        )}
+    <StyledHeader>
+      <Link href="/">
+        <a className="text-white text-3xl ml-10 font-title">reactplot</a>
+      </Link>
+      <div className="header-btns text-xl mr-8">
+        <Link href="/">
+          <a className={`${path === "/" && "active"}`}>Top</a>
+        </Link>
+        <Link href="/2d">
+          <a className={`${path.startsWith("/2d") && "active"}`}>2D</a>
+        </Link>
+        <Link href="/3d">
+          <a className={`${path === "/3d" && "active"}`}>3D</a>
+        </Link>
       </div>
-
-      {!props.hideHamburger && (
-        <Hamburger
-          isMenuOpen={navState.showSideMenu}
-          onClick={() => {
-            setShowSideMenu(!navState.showSideMenu);
-            setBackDrop({ show: !navState.showSideMenu });
-          }}
-        />
-      )}
     </StyledHeader>
   );
 };
 
+const headerHeight = 50;
+
 const StyledHeader = styled.header`
-  width: 100%;
-  height: 50px;
-  display: flex;
-  justify-content: left;
   position: fixed;
-  top: 0;
-  align-items: center;
-  background-color: ${(props) => props.bg || "black"};
+  backdrop-filter: blur(2px);
   color: white;
-  z-index: 10;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  height: ${headerHeight}px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+
   img {
-    margin-left: 1rem;
+    margin-left: 0.5rem;
+  }
+  a {
+    color: white;
   }
 
-  .header-icon {
-    cursor: pointer;
+  & > .header-btns {
+    display: flex;
+    margin-left: 20px;
 
-    &-back {
-      margin-left: 20px;
-      font-size: 30px;
+    & > a {
+      line-height: ${headerHeight}px;
+      display: block;
+      padding: 0 20px;
+      transition: background-color 0.5s;
+      box-sizing: border-box;
+      height: 50px;
+
+      :hover {
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.3);
+      }
+    }
+    & > .active {
+      border-bottom: 4px solid #00adff;
     }
   }
 `;

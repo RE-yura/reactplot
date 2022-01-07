@@ -7,7 +7,7 @@ import DefaultLayout from "../components/templates/DefaultLayout";
 import TextField from "../components/atoms/global/TextField";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useUserState } from "../redux/user/useState";
+import { useUserState } from "../redux/user/useUserState";
 
 const AccountSettingPage = () => {
   const { userState, getMe } = useUserState();

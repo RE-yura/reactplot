@@ -15,10 +15,13 @@ type Props = {
 
 const TextField: FC<Partial<Props>> = (props) => {
   return (
-    <Wrapper width={props.width} className="flex flex-col w-full">
-      <TextFieldWrapper type={props.type} height={props.height} {...props} />
-      <StyledError className="text-xs text-error">{props.error}</StyledError>
-    </Wrapper>
+    <div className="flex flex-row">
+      {props.label && <Label className="my-auto">{props.label}</Label>}
+      <StyledDiv width={props.width} className="flex flex-col w-full">
+        <TextFieldWrapper type={props.type} height={props.height} {...props} />
+        <StyledError className="text-xs text-error">{props.error}</StyledError>
+      </StyledDiv>
+    </div>
   );
 };
 
@@ -27,8 +30,12 @@ const StyledError = styled.div`
   white-space: nowrap;
 `;
 
-const Wrapper = styled.div`
+const StyledDiv = styled.div`
   width: ${(props) => (props.width ? props.width : "100%")};
+`;
+
+const Label = styled.span`
+  height: ${(props) => (props.width ? props.height : "40px")};
 `;
 
 const BaseTextField = styled.input<{

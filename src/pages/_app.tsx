@@ -4,7 +4,7 @@ import { AppProps } from "next/app";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistor } from "../redux/store";
-import { useNavState } from "../redux/nav/useState";
+import { useNavState } from "../redux/nav/useNavState";
 import store from "../redux/store";
 import BackDrop from "../components/atoms/global/BackDrop";
 import SideMenu from "../components/organisms/global/SideMenu";
@@ -16,14 +16,6 @@ import "tailwindcss/tailwind.css";
 const AppInit = () => {
   const { navState, setBackDrop, setShowSideMenu, setFrontViewType } = useNavState();
   const router = useRouter();
-
-  useEffect(() => {
-    setFrontViewType(FrontViewType.LaunchNotification);
-    setBackDrop({ show: true, isDark: true });
-
-    // 起動時に1回だけ獲得ポイント通知モーダル表示
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const handleRouteChange = (url, { shallow }) => {

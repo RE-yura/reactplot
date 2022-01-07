@@ -1,17 +1,12 @@
-import React, { FC } from "react";
+import React from "react";
 import styled from "styled-components";
 import Footer from "../organisms/global/Footer";
 import Header from "../organisms/global/Header";
 
-type Props = {
-  bg?: string;
-  notTop?: boolean;
-};
-
-const DefaultLayout: FC<Props> = (props) => {
+const DefaultLayout = (props) => {
   return (
     <Container className="font-body">
-      <Header notTop={props.notTop} bg={props.bg} />
+      <Header />
       <StyledMain>{props.children}</StyledMain>
       <Footer />
     </Container>

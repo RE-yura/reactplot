@@ -4,7 +4,7 @@
 
 import { useState, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import navSlice, { NavState } from "./slice";
+import navSlice, { NavState } from "./navSlice";
 import { BDType, FrontViewType } from "../../types";
 
 export const useNavState = () => {
